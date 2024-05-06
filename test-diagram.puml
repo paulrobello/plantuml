@@ -1,0 +1,28 @@
+@startuml
+
+    !include <classy/core>
+
+    $class(HelloWorld)
+        $classVar(msg, string, "Hello World!")
+
+        $classMethod(getMessage)
+            !function HelloWorld__getMessage($this)
+                !return $getInstanceVar($this, 'msg')
+            !endfunction
+        $endclassMethod(getMessage)
+
+        $classMethod(setMessage)
+            !function HelloWorld__setMessage($this, $args)
+                $setInstanceVar($this, 'msg', $call($args, 'each'))
+                !return $this
+            !endfunction
+        $endclassMethod(setMessage)
+        $endclass(HelloWorld)
+
+        !$hello = $new(HelloWorld)
+        Alice -> Bob : $call($hello, 'getMessage')
+
+        $call($hello, 'setMessage', array($new(array), '2nd message!'), $void=%true())
+        Alice -> Bob : $call($hello, 'getMessage')
+
+@enduml
