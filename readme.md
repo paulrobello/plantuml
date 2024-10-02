@@ -1,4 +1,4 @@
-# Plant UML lambda url to generate UML diagrams in SVG format
+# Plant UML lambda url to generate UML diagrams in SVG and PNG formats
 
 ## Description
 This projects builds a lambda layer containing the plantuml jar file and OpenJDK JRE to run the jar file, as well as graphviz to generate additional diagram types.  
