@@ -157,6 +157,14 @@ update-lambda-layer-version: create-lambda-layer
 	$(AWS_CMD) lambda update-function-configuration --function-name $(LAMBDA_NAME) \
 		--layers $(LAYER_ARN) $(POWERTOOLS_LAYER_ARN)
 
+# post puml to lambda url to get png
+.PHONY: post-lambda-url-png
+post-lambda-url-png:
+	@curl -X POST $(LAMBDA_URL)?format=png \
+	-H 'Content-Type: text/plain' \
+	-H 'X-API-Key: $(API_KEY)' \
+	--data-binary @./test-diagram.puml > test-diagram.png
+
 # post puml to lambda url to get svg
 .PHONY: post-lambda-url
 post-lambda-url:
