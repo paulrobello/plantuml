@@ -19,11 +19,11 @@ RUN mkdir -p java/lib && cp -rp /usr/lib/jvm/java-11-amazon-corretto/* java/lib/
 # Add your plantuml.jar or other necessary files
 COPY plantuml.jar /lambda-layer/java/lib/
 
-RUN curl https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/11.0.0/graphviz-11.0.0.tar.gz | tar -xz
-RUN cd graphviz-11.0.0 && \
+RUN curl https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/12.1.2/graphviz-12.1.2.tar.gz | tar -xz
+RUN cd graphviz-12.1.2 && \
     ./configure --enable-static --disable-shared --prefix=/lambda-layer/local && \
     make && make install && \
-    cd .. && rm -rf graphviz-11.0.0 && \
+    cd .. && rm -rf graphviz-12.1.2 && \
     rm -rf /lambda-layer/local/lib
 #RUN     find /lambda-layer/ -name 'gvpr' -delete
 RUN     find /lambda-layer/ -name 'gvpack' -delete

@@ -19,7 +19,7 @@ Create a .env file in the project root with the following keys for your deployme
 * API_KEY=Any key you want to use to secure the lambda. Defaults to "WootWootWoot"
 * LAMBDA_NAME=Defaults to "plantuml"
 * PLANTUML_VERSION=Defaults to "1.2024.3"
-* LAMBDA_POWER_TOOLS_LAYER_VERSION=Defaults to "69"
+* LAMBDA_POWER_TOOLS_LAYER_VERSION=Defaults to "78"
 
 **Note you must assume aws creds in target AWS_ACCT before running any make targets**
 
