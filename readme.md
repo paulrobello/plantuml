@@ -5,7 +5,7 @@ This projects builds a lambda layer containing the plantuml jar file and OpenJDK
 It then creates a pyton lambda that uses the layer to run the plantuml jar file to generate SVG diagrams from PlantUML text.  
 The lambda is invoked via POST to Function URL with uml in body, and requires an API key to be passed in the header.  
 The lambda and its layer are built for arm64 to reduce cost.  
-The lambda is also uses AWS hosted Lambda Powertools layer.
+The lambda also uses AWS hosted Lambda Powertools layer.
 Due to the memory required to run the java program, and to decrease execution time, the lambda is configured with 1024MB of memory.  
 Average time to return a diagram from warm lambda is 5 seconds and 9 seconds for cold.  
 The layer and the lambda are built using docker.  
@@ -42,18 +42,12 @@ make post-lambda-url-aws
 make post-lambda-url-icons
 ```
 
-
-
 ### CURL example
 Note replace the lambda url with the one output from the: 
 ```bash
-make deploy
-```
-or
-```bash
 make get-lambda-url.  
 ```
-You must must also ensure the API key is correct. You can get the key with: 
+You must also ensure the API key is correct. You can get the key with: 
 ```bash
 make get-lambda-env
 ```
